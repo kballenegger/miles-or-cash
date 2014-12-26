@@ -1,3 +1,4 @@
+default: all
 
 # files for target jsx
 source.js: source.jsx
@@ -9,7 +10,9 @@ bundle.js: source.js
 	@echo "Running browserify."
 	@browserify source.js > bundle.js
 
-default: all
+clean:
+	@rm bundle.js source.js
+
 all: bundle.js
 
-.PHONY: default all
+.PHONY: default all clean

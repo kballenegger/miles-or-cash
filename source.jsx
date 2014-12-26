@@ -7,7 +7,12 @@ var App = React.createClass({
     return <div>
       <h1>Should I use miles or cash?</h1>
       <div>
-
+        <div className="left">
+          on-the-left
+        </div>
+        <div className="right">
+          on-the-left
+        </div>
       </div>
     </div>;
   },
