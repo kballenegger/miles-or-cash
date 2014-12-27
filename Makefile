@@ -1,3 +1,5 @@
+NODE_ENV ?= development
+
 default: all
 
 # files for target jsx
@@ -8,7 +10,8 @@ source.js: source.jsx
 
 bundle.js: source.js
 	@echo "Running browserify."
-	@browserify source.js > bundle.js
+	@if [ "$(NODE_ENV)" = "production" ] ; then browserify source.js > bundle.js ; fi
+	@if [ "$(NODE_ENV)" != "production" ] ; then browserify --fast source.js > bundle.js ; fi
 
 clean:
 	@rm bundle.js source.js

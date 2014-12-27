@@ -9,6 +9,7 @@
   "author": "Kenneth Ballenegger",
   "license": "Azure",
   "dependencies": {
+    "numeral": "^1.5.3",
     "react": "^0.12.2"
   }
 }

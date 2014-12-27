@@ -1,4 +1,5 @@
 var React = require('react');
+var Numeral = require('numeral');
 
 var App = React.createClass({
 
@@ -27,7 +28,13 @@ var App = React.createClass({
     var mileValue = milesValue / miles;
 
     this.setState({
-      result: '' + miles + ' miles is getting you ' + milesValue + ' USD, i.e. ' + mileValue + ' USD per mile.',
+      result: '' +
+        Numeral(miles).format('0,0 a') +
+        ' miles is getting you ' +
+        Numeral(milesValue).format('$ 0,0[.]00') +
+        ' USD, i.e. ' +
+        Numeral(mileValue).format('$ 0,0[.]00[00]') +
+        ' USD per mile.',
       better: mileValue > 0.014 ? 'miles' : 'cash',
     });
   },
