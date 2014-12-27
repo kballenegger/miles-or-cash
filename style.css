@@ -1,0 +1,56 @@
+*, body {
+  padding: 0px;
+  margin: 0px;
+}
+
+#app {
+  margin: auto;
+  width: 600px;
+  background-color: grey;
+  min-height: 200px;
+}
+
+h1 {
+  padding: 10px 0px;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.side {
+  background: red;
+  width: 40%;
+  padding: 0px 2.5%;
+}
+
+.side > input {
+  padding: 5px;
+  background: white;
+  /*border-radius: 2px;*/
+  border: 1px solid #eee;
+  margin: 2.5px;
+  /*border: none;*/
+}
+
+input:focus {
+  outline: none;
+}
+
+.middle {
+  width: 10%;
+  text-align: center;
+  padding-top: 10px;
+  margin: auto;
+}
+
+.result {
+  text-align: center;
+  padding: 5px;
+  border-top: 1px solid #eee;
+  margin-top: 5px;
+}
