@@ -17,10 +17,10 @@ var App = React.createClass({
 
     var miles = parseFloat(milesInput);
     var milesCash = parseFloat(milesCashInput);
-    if (NaN === milesCash) milesCash = 0;
+    if (isNaN(milesCash)) milesCash = 0;
     var cash = parseFloat(cashInput);
 
-    if (miles === NaN || cash === NaN) {
+    if (isNaN(miles) || isNaN(cash)) {
       return this.reset();
     }
 
@@ -29,11 +29,11 @@ var App = React.createClass({
 
     this.setState({
       result: '' +
-        Numeral(miles).format('0,0 a') +
+        Numeral(miles).format('0,0a') +
         ' miles is getting you ' +
-        Numeral(milesValue).format('$ 0,0[.]00') +
+        Numeral(milesValue).format('$0,0[.]00') +
         ' USD, i.e. ' +
-        Numeral(mileValue).format('$ 0,0[.]00[00]') +
+        Numeral(mileValue).format('$0,0[.]00[00]') +
         ' USD per mile.',
       better: mileValue > 0.014 ? 'miles' : 'cash',
     });

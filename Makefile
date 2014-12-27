@@ -10,8 +10,7 @@ source.js: source.jsx
 
 bundle.js: source.js
 	@echo "Running browserify."
-	@if [ "$(NODE_ENV)" = "production" ] ; then browserify source.js > bundle.js ; fi
-	@if [ "$(NODE_ENV)" != "production" ] ; then browserify --fast source.js > bundle.js ; fi
+	@browserify source.js -o bundle.js
 
 clean:
 	@rm bundle.js source.js
