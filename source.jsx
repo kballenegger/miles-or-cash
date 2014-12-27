@@ -32,9 +32,9 @@ var App = React.createClass({
         Numeral(miles).format('0,0a') +
         ' miles is getting you ' +
         Numeral(milesValue).format('$0,0[.]00') +
-        ' USD, i.e. ' +
+        ', i.e. ' +
         Numeral(mileValue).format('$0,0[.]00[00]') +
-        ' USD per mile.',
+        ' per mile.',
       better: mileValue > 0.014 ? 'miles' : 'cash',
     });
   },
