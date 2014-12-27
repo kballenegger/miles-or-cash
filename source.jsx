@@ -10,7 +10,30 @@ var App = React.createClass({
   },
 
   update: function update () {
-    console.log('hello');
+    var milesInput = this.refs['miles'].getDOMNode().value.trim();
+    var milesCashInput = this.refs['miles-cash'].getDOMNode().value.trim();
+    var cashInput = this.refs['cash'].getDOMNode().value.trim();
+
+    var miles = parseFloat(milesInput);
+    var milesCash = parseFloat(milesCashInput);
+    if (NaN === milesCash) milesCash = 0;
+    var cash = parseFloat(cashInput);
+
+    if (miles === NaN || cash === NaN) {
+      return this.reset();
+    }
+
+    var milesValue = cash - milesCash;
+    var mileValue = milesValue / miles;
+
+    this.setState({
+      result: '' + miles + ' miles is getting you ' + milesValue + ' USD, i.e. ' + mileValue + ' USD per mile.',
+      better: mileValue > 0.014 ? 'miles' : 'cash',
+    });
+  },
+
+  reset: function reset () {
+    this.setState(this.getInitialState());
   },
 
   render: function render () {
@@ -18,12 +41,12 @@ var App = React.createClass({
     return <div>
       <h1>Should I use miles or cash?</h1>
       <div>
-        <div className={'left side' + (this.state.better == 'miles' ? 'better' : '')}>
+        <div className={'left side ' + (this.state.better == 'miles' ? 'better' : '')}>
           <input ref="miles" onChange={this.update} /> miles
           +
           <input ref="miles-cash" onChange={this.update} /> USD
         </div>
-        <div className={'right side' + (this.state.better == 'cash' ? 'better' : '')}>
+        <div className={'right side ' + (this.state.better == 'cash' ? 'better' : '')}>
           <input ref="cash" onChange={this.update} /> USD
         </div>
         <div className="middle">
