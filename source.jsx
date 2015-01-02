@@ -1,3 +1,5 @@
+var MIN_MILE_VALUE = 0.02;
+
 var React = require('react');
 var Numeral = require('numeral');
 
@@ -35,7 +37,7 @@ var App = React.createClass({
         ', i.e. ' +
         Numeral(mileValue).format('$0,0[.]00[00]') +
         ' per mile.',
-      better: mileValue > 0.014 ? 'miles' : 'cash',
+      better: mileValue > MIN_MILE_VALUE ? 'miles' : 'cash',
     });
   },
 
