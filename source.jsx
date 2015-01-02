@@ -49,6 +49,10 @@ var App = React.createClass({
 
     return <div>
       <h1>Should I use miles or cash?</h1>
+      <p>
+        Fill in how much it'd cost to purchase an itinarary with award miles
+        and with cash. This app will calculate which is the better value.
+      </p>
       <div>
         <div className={'left side ' + (this.state.better == 'miles' ? 'better' : '')}>
           <input ref="miles" onChange={this.update} /> miles
